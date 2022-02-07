@@ -1,1 +1,1 @@
-# compounds-normalization
+# CompoundsNormalizer
