@@ -1,7 +1,7 @@
 # CompoundsNormalizer
 CompoundsNormalizer is a python package that unifies the names of chemical compounds via PubChem API.
 # Usage
-```
+```python
 from CompoundsNormalizer import CompoundNameNormalizer
 
 compounds = ["Adenosine", "Adenocard", "BG8967"]
