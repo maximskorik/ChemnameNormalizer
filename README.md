@@ -23,4 +23,4 @@ docker run -t normalizer
 ```
 or you can change the input array in the `main.py` file and run the tool in the container with new input as follows:
 ```
-docker run -t -v $(pwd):/usr/src/CompoundsNormalizer normalizer python main.py
+docker run -t -v $(pwd):/usr/src/CompoundsNormalizer normalizer
