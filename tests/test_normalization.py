@@ -9,8 +9,8 @@ from CompoundsNormalizer import Normalizer
           ["adenosine", "adenosine", "bivalirudin", None, "fluconazole", "fluconazole", "ibrutinib", "ibrutinib"])
      ])
 async def test_normalize(names, expected):
-    app = Normalizer()
-    result = await app.normalize(names, "trivial")
+    app = Normalizer(normalization_format="trivial")
+    result = await app.normalize(names)
 
     assert result == expected
 
