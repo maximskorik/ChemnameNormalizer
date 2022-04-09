@@ -1,4 +1,3 @@
-import asyncio
 import pytest
 from CompoundsNormalizer import Normalizer
 
@@ -14,3 +13,8 @@ async def test_normalize(names, expected):
     result = await app.normalize(names, "trivial")
 
     assert result == expected
+
+
+@pytest.mark.skip(reason="Not implemented")
+def test_read_names_from_file():
+    pass
