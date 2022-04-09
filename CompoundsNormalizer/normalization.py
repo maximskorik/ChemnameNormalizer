@@ -27,5 +27,5 @@ class Normalizer:
 
     @staticmethod
     def _format_names(names: List) -> List[str]:
-        names = [name.lower().strip() if type(name) is str else name for name in names]
+        names = [name.lower() if type(name) is str else name for name in names]
         return names
