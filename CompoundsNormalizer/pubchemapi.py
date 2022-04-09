@@ -5,8 +5,8 @@ class _PubChemAPI:
 
     _url_prefixes = {"search": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name",
                      "fuzzy_search": "https://pubchem.ncbi.nlm.nih.gov/rest/autocomplete/compound"}
-    _url_suffixes = {"trivial": "synonyms/json",
-                     "iupac": "property/iupacname/json"}
+    _url_suffixes = {"trivial": "synonyms",
+                     "iupac": "property/iupacname"}
 
     def __init__(self, session: ClientSession, normalization_format: str):
         self._format = normalization_format
@@ -51,9 +51,9 @@ class _PubChemAPI:
         prefix_url = self._url_prefixes[prefix]
         suffix = self._url_suffixes[self._format]
         url = "/".join([prefix_url, name])
-        if prefix is "search":
+        if prefix == "search":
             url += "/" + suffix
-        return url
+        return url + "/json"
 
     @staticmethod
     def _request_is_ok(response: int):
