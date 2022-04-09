@@ -1,5 +1,6 @@
+from .pubchemapi import PubChemAPI
+
 from aiohttp import ClientSession
-from CompoundsNormalizer import PubChemAPI
 from typing import List
 
 
