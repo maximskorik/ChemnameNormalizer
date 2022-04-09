@@ -29,4 +29,5 @@ def read_csv(file_path):
 def read_txt(file_path):
     with open(file_path) as f:
         data = f.readlines()
+        data = [data.rstrip('\n') for data in data]
     return data
