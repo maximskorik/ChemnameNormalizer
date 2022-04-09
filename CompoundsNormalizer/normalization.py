@@ -13,7 +13,7 @@ class Normalizer:
     async def normalize(self, names: List, normalization_format: str) -> List[str]:
         self.original_names = names
         await self._run_query(names, normalization_format)
-        self.norm_names = self.format_names(self.norm_names)
+        self.norm_names = self._format_names(self.norm_names)
         return self.norm_names
 
     def read_names_from_file(self, file_path: str) -> List[str]:
@@ -26,6 +26,6 @@ class Normalizer:
         self.norm_names = norm_names
 
     @staticmethod
-    def format_names(names: List) -> List[str]:
+    def _format_names(names: List) -> List[str]:
         names = [name.lower().strip() if type(name) is str else name for name in names]
         return names
