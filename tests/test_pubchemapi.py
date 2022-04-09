@@ -1,6 +1,6 @@
 from aiohttp import ClientSession
 import pytest
-from CompoundsNormalizer.pubchemapi import PubChemAPI
+from CompoundsNormalizer.pubchemapi import _PubChemAPI
 
 
 @pytest.mark.asyncio
@@ -19,7 +19,7 @@ from CompoundsNormalizer.pubchemapi import PubChemAPI
 )
 async def test_get_name(name, norm_format, expected):
     async with ClientSession() as session:
-        api = PubChemAPI(session=session, normalization_format=norm_format)
+        api = _PubChemAPI(session=session, normalization_format=norm_format)
         name = await api.get_name(name)
 
     assert name == expected
@@ -37,7 +37,7 @@ async def test_get_name(name, norm_format, expected):
 )
 async def test_fuzzy_search_name(name, expected):
     async with ClientSession() as session:
-        api = PubChemAPI(session=session, normalization_format="trivial")
+        api = _PubChemAPI(session=session, normalization_format="trivial")
         name = await api.fuzzy_search_name(name)
 
     assert name == expected

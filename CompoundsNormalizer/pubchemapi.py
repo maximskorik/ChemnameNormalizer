@@ -1,7 +1,7 @@
 from aiohttp import ClientSession
 
 
-class PubChemAPI:
+class _PubChemAPI:
 
     _url_prefixes = {"search": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name",
                      "fuzzy_search": "https://pubchem.ncbi.nlm.nih.gov/rest/autocomplete/compound"}
