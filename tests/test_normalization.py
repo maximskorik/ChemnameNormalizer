@@ -1,20 +1,16 @@
+import asyncio
 import pytest
-from CompoundsNormalizer.normalization import CompoundNameNormalizer
+from CompoundsNormalizer import Normalizer
 
 
-def test_normalize_to_trivial():
-    input = ["Adenosine", "Adenocard", "BG8967", "Bivalirudin", "BAYT006267", "diflucan", "ibrutinib", "PC-32765"]
-    expected = ["adenosine", "adenosine", "bivalirudin", "bivalirudin", "fluconazole", "fluconazole", "ibrutinib",
-                "ibrutinib"]
+@pytest.mark.asyncio
+@pytest.mark.parametrize("names, expected",
+     [
+         (["Adenosine", "Adenocard", "BG8967", "NONEXISTENT", "BAYT006267", "diflucan", "ibrutinib", "PC-32765"],
+          ["adenosine", "adenosine", "bivalirudin", None, "fluconazole", "fluconazole", "ibrutinib", "ibrutinib"])
+     ])
+async def test_normalize(names, expected):
+    app = Normalizer()
+    result = await app.normalize(names, "trivial")
 
-    actual = CompoundNameNormalizer(input).normalize(type="common")
-    assert actual == expected
-
-
-@pytest.mark.skip(reason="Missing expected data")
-def test_normalize_to_iupac():
-    input = ["Adenosine", "Adenocard", "BG8967", "Bivalirudin", "BAYT006267", "diflucan", "ibrutinib", "PC-32765"]
-    expected = []  # TODO
-
-    actual = CompoundNameNormalizer(input).normalize(type="iupac")
-    assert actual.normalized_names == expected
+    assert result == expected

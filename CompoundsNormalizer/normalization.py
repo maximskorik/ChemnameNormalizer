@@ -1,35 +1,30 @@
+from aiohttp import ClientSession
+from CompoundsNormalizer import PubChemAPI
 from typing import List
-from pubchempy import get_compounds
-import pandas
 
 
-class CompoundNameNormalizer:
+class Normalizer:
 
-    def __init__(self, compound_names: List[str]):
-        self.mapper = {"common": self.to_common,
-                       "iupac": self.to_iupac}
-        self.original_names = compound_names
-        self.normalized_names = None
+    def __init__(self):
+        self.original_names = None
+        self.norm_names = None
 
-    def normalize(self, type="common") -> List[str]:
-        self.normalized_names = []
-        for name in self.original_names:
-            self.normalized_names.append(self.mapper[type](name))
-        return self.normalized_names
+    async def normalize(self, names: List, normalization_format: str) -> List[str]:
+        self.original_names = names
+        await self._run_query(names, normalization_format)
+        self.norm_names = self.format_names(self.norm_names)
+        return self.norm_names
+
+    def read_names_from_file(self, file_path: str) -> List[str]:
+        pass
+
+    async def _run_query(self, names: List, normalization_format: str) -> List[str]:
+        async with ClientSession() as session:
+            api = PubChemAPI(session=session, normalization_format=normalization_format)
+            norm_names = [await api.get_name(name) for name in names]
+        self.norm_names = norm_names
 
     @staticmethod
-    def to_common(name: str) -> str:
-        compound = get_compounds(name, "name")[0]
-        return compound.synonyms[0].lower()
-
-    @staticmethod
-    def to_iupac(name: str) -> str:
-        compound = get_compounds(name, "name")[0]
-        return compound.iupac_name.lower()
-
-    def as_pandas(self) -> pandas.DataFrame:
-        if self.normalized_names is None:
-            print("Normalization has not been performed yet.")
-        else:
-            return pandas.DataFrame({"org_form": self.original_names,
-                                     "normed_form": self.normalized_names})
+    def format_names(names: List) -> List[str]:
+        names = [name.lower().strip() if type(name) is str else name for name in names]
+        return names
