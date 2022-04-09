@@ -1,5 +1,5 @@
 import pytest
-from CompoundsNormalizer import Normalizer
+from ChemicalNameNormalizer import Normalizer
 
 
 @pytest.mark.asyncio

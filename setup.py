@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='CompoundsNormalizer',
+    name='ChemicalNameNormalizer',
     version='0.1',
-    packages=['CompoundsNormalizer'],
+    packages=['ChemicalNameNormalizer'],
     url='https://github.com/maximskorik/CompoundsNormalizer',
     license='',
     author='Maksym Skoryk',

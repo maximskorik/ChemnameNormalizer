@@ -1,9 +1,9 @@
-FROM python:latest
+FROM python:3.9.0
 
-COPY . /usr/src/CompoundsNormalizer
-WORKDIR /usr/src/CompoundsNormalizer
+COPY . /usr/src/ChemicalNameNormalizer
+WORKDIR /usr/src/ChemicalNameNormalizer
 
 RUN pip install -r requirements.txt
 RUN python setup.py install
 
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["python", "ChemicalNameNormalizer"]
