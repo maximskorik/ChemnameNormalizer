@@ -1,1 +1,2 @@
-from .normalization import CompoundNameNormalizer
+from .normalization import Normalizer
+from .pubchemapi import PubChemAPI
