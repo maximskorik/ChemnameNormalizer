@@ -13,12 +13,15 @@ class PubChemAPI:
         self._session = session
 
     async def get_name(self, name: str):
+        if name is None:
+            return None
         url = self._construct_url(name)
         response = await self._query_server(url)
         if self._request_is_ok(response.status):
             return await self._parse_response(response)
         else:
-            return await self.fuzzy_search_name(name)
+            return await self.get_name(
+                await self.fuzzy_search_name(name))
 
     async def fuzzy_search_name(self, name: str):
         url = self._construct_url(name, "fuzzy_search")

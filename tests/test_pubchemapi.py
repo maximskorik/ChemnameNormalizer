@@ -14,7 +14,7 @@ from CompoundsNormalizer.pubchemapi import PubChemAPI
      ("diflucan", "iupac", "2-(2,4-difluorophenyl)-1,3-bis(1,2,4-triazol-1-yl)propan-2-ol"),
      ("BAYT006267", "iupac", "2-(2,4-difluorophenyl)-1,3-bis(1,2,4-triazol-1-yl)propan-2-ol"),
      ("N0NEX1STENT", "iupac", None),
-     ("aden0card", "trivial", "Adenocard")
+     ("aden0card", "trivial", "adenosine")
      ]
 )
 async def test_get_name(name, norm_format, expected):
