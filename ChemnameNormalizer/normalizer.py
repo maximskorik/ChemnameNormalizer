@@ -1,5 +1,6 @@
 from .pubchemapi import _PubChemAPI
 
+import asyncio
 from aiohttp import ClientSession
 from typing import List
 
@@ -11,9 +12,9 @@ class Normalizer:
         self.original_names = None
         self.norm_names = None
 
-    async def normalize(self, names: List) -> List[str]:
+    def normalize(self, names: List) -> List[str]:
         self.original_names = names
-        await self._run_query(names)
+        asyncio.run(self._run_query(names))
         self.norm_names = self._format_names(self.norm_names)
         return self.norm_names
 

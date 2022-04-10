@@ -1,5 +1,4 @@
 import argparse
-import asyncio
 import sys
 from utils import read_input, write_output
 
@@ -38,7 +37,7 @@ def main(argv):
 
     input_data = read_input(input_file)
     normalizer = Normalizer(normalization_format)
-    normalized = asyncio.run(normalizer.normalize(input_data))
+    normalized = normalizer.normalize(input_data)
 
     write_output(output_file, input_data, normalized)
     print("DONE")

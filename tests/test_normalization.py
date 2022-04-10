@@ -8,9 +8,9 @@ from ChemnameNormalizer import Normalizer
          (["aden0card", "Adenocard", "BG8967", "N0NEX1STENT", "BAYT006267", "diflucan", "ibrut1nlb", "PC-32765"],
           ["adenosine", "adenosine", "bivalirudin", None, "fluconazole", "fluconazole", "ibrutinib", "ibrutinib"])
      ])
-async def test_normalize(names, expected):
+def test_normalize(names, expected):
     app = Normalizer(normalization_format="trivial")
-    result = await app.normalize(names)
+    result = app.normalize(names)
 
     assert result == expected
 
