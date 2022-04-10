@@ -1,6 +1,6 @@
 # ChemnameNormalizer
-**ChemnameNormalizer** is a python package that unifies the names of chemical compounds via PubChem REST API.
-It maps different synonyms of a same compound to the same name – trivial or iupac.
+**ChemnameNormalizer** is a Python package that unifies and normalizes chemical compounds' names via **PubChem REST API**. 
+It maps different synonyms of the same compound to the same name – *trivial* or *IUPAC*. 
 It also accepts chemical names with typos and performs fuzzy searching to match those names.
 ## Installation
 Install the required dependencies and the package:
