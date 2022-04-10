@@ -48,6 +48,7 @@ class _PubChemAPI:
         return response
 
     def _construct_url(self, name: str, prefix: str = "search"):
+        name = name.replace(" ", "%20")
         prefix_url = self._url_prefixes[prefix]
         suffix = self._url_suffixes[self._format]
         url = "/".join([prefix_url, name])
@@ -58,4 +59,3 @@ class _PubChemAPI:
     @staticmethod
     def _request_is_ok(response: int):
         return response == 200
-
