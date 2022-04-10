@@ -40,7 +40,7 @@ def main(argv):
     normalizer = Normalizer(normalization_format)
     normalized = asyncio.run(normalizer.normalize(input_data))
 
-    write_output(output_file, normalized)
+    write_output(output_file, input_data, normalized)
     return 0
 
 

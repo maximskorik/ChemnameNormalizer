@@ -3,10 +3,10 @@ from typing import List, Union
 import os
 
 
-def write_output(file_path, data):
+def write_output(file_path, original_data, normalized_data):
     with open(file_path, 'a') as f:
-        for compound in data:
-            f.write(f"{compound}\n")
+        for pair in zip(original_data, normalized_data):
+            f.write(pair[0] + "," + pair[1] + "\n")
 
 
 def read_input(file_path) -> Union[List, NotImplementedError]:
