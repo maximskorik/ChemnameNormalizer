@@ -15,6 +15,7 @@ class _PubChemAPI:
     async def get_name(self, name: str):
         if name is None:
             return None
+        print(f"Looking up {name}...")
         url = self._construct_url(name)
         response = await self._query_server(url)
         if self._request_is_ok(response.status):
