@@ -33,10 +33,10 @@ def main(argv):
 
     input_file: str = args.input
     output_file: str = args.output
-    normalization_format: str = args.normalization_format
+    format: str = args.format
 
     input_data = read_input(input_file)
-    normalizer = Normalizer(normalization_format)
+    normalizer = Normalizer(format)
     normalized = normalizer.normalize(input_data)
 
     write_output(output_file, input_data, normalized)
