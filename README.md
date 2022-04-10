@@ -11,7 +11,7 @@ $ python setup.py install
 ## Usage
 Use **ChemnameNormalizer** in python:
 ```python
-from ChemNameNormalizer import Normalizer
+from ChemnameNormalizer import Normalizer
 
 
 compounds = ["aden0card", "Adenocard", "BAYT006267", "diflucan", "ibrut1nlb", "PC-32765"]
