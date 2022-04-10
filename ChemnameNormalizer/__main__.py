@@ -13,11 +13,11 @@ def create_parser():
                         required=True,
                         help='Input file')
 
-    parser.add_argument(
-        '-f', '--normalization_format',
-        type=str,
-        required=False,
-        help='Preferred chemical name format {"trivial", "iupac"}')
+    parser.add_argument('-f',
+                        '--format',
+                        type=str,
+                        required=False,
+                        help='Preferred chemical name format {"trivial", "iupac"}')
 
     parser.add_argument('-o',
                         '--output',

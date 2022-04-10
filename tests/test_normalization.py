@@ -9,12 +9,7 @@ from ChemnameNormalizer import Normalizer
           ["adenosine", "adenosine", "bivalirudin", None, "fluconazole", "fluconazole", "ibrutinib", "ibrutinib"])
      ])
 def test_normalize(names, expected):
-    app = Normalizer(normalization_format="trivial")
+    app = Normalizer(format="trivial")
     result = app.normalize(names)
 
     assert result == expected
-
-
-@pytest.mark.skip(reason="Not implemented")
-def test_read_names_from_file():
-    pass

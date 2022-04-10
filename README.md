@@ -16,8 +16,8 @@ from ChemnameNormalizer import Normalizer
 
 compounds = ["aden0card", "Adenocard", "BAYT006267", "diflucan", "ibrut1nlb", "PC-32765"]
 
-normalizer = Normalizer(normalization_format="trivial")
-norm_compounds = normalized(names=compounds)
+normalizer = Normalizer(format="trivial")
+norm_compounds = normalizer.normalize(names=compounds)
 
 >> norm_compounds
 ["adenosine", "adenosine", "fluconazole", "fluconazole", "ibrutinib", "ibrutinib"]
@@ -27,7 +27,7 @@ You can run the package in the command line (executed with sample data):
 $ python ChemnameNormalizer \
     --input tests/data/compounds.txt \
     --output output.csv \
-    --normalization_format trivial
+    --format trivial
 ```
 Alternatively, you can use **ChemnameNormalizer** in a Docker container:
 ```shell
