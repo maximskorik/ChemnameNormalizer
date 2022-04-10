@@ -17,9 +17,6 @@ class Normalizer:
         self.norm_names = self._format_names(self.norm_names)
         return self.norm_names
 
-    def read_names_from_file(self, file_path: str) -> List[str]:
-        pass
-
     async def _run_query(self, names: List):
         async with ClientSession() as session:
             api = _PubChemAPI(session=session, normalization_format=self.normalization_format)
