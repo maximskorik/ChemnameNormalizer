@@ -1,7 +1,7 @@
 import csv
 import pytest
 import os
-from ChemicalNameNormalizer.utils import read_input, write_output
+from ChemnameNormalizer.utils import read_input, write_output
 
 here = os.path.abspath(os.path.dirname(__file__))
 testdata_dir = os.path.join(here, 'data')

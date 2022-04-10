@@ -3,7 +3,7 @@ import asyncio
 import sys
 from utils import read_input, write_output
 
-from ChemicalNameNormalizer.normalizer import Normalizer
+from ChemnameNormalizer.normalizer import Normalizer
 
 
 def create_parser():

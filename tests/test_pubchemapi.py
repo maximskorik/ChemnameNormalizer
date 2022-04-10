@@ -1,6 +1,6 @@
 from aiohttp import ClientSession
 import pytest
-from ChemicalNameNormalizer.pubchemapi import _PubChemAPI
+from ChemnameNormalizer.pubchemapi import _PubChemAPI
 
 
 @pytest.mark.asyncio

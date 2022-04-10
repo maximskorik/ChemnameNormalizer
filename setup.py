@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name='ChemicalNameNormalizer',
+    name='ChemnameNormalizer',
     version='0.1',
-    packages=['ChemicalNameNormalizer'],
-    url='https://github.com/maximskorik/CompoundsNormalizer',
+    packages=['ChemnameNormalizer'],
+    url='https://github.com/maximskorik/ChemnameNormalizer',
     license='',
     author='Maksym Skoryk',
     author_email='maximskoryk@gmail.com',
-    description='Normalize Compound Names'
+    description='Normalize Chemical-Compound Names'
 )
