@@ -7,7 +7,7 @@ from typing import List
 
 class Normalizer:
 
-    def __init__(self, normalization_format: str):
+    def __init__(self, normalization_format: str = "trivial"):
         self.normalization_format = normalization_format
         self.original_names = None
         self.norm_names = None
